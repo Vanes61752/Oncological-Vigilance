@@ -27,33 +27,38 @@
     header {
       background-color: #0d0d0d;
       color: #ffffff;
-      height: 100px;
+      min-height: 150px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
+      padding: 15px 40px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap;
+      gap: 15px;
     }
     .header-nav {
       display: flex;
       align-items: center;
       gap: 20px;
       font-size: 13px;
+      flex-wrap: wrap;
     }
     .header-nav a {
       color: #ffffff;
       transition: opacity 0.2s;
+      white-space: nowrap;
     }
     .header-nav a:hover {
       opacity: 0.8;
     }
     .brand-logo {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
       color: #ffffff;
       letter-spacing: 0.5px;
+      text-align: center;
     }
     .red-o {
       color: #e53935;
@@ -80,12 +85,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 40px;
-      min-height: 380px;
+      min-height: 320px;
     }
     .hero-text {
       flex: 1;
-      font-size: 22px;
+      font-size: 24px;
       font-family: 'Times New Roman', Times, serif;
+      line-height: 1.4;
     }
     .hero-image {
       flex: 1;
@@ -94,7 +100,8 @@
     .hero-image img {
       max-width: 100%;
       height: auto;
-      border-radius: 4px;
+      border-radius: 6px;
+      object-fit: cover;
     }
 
     /* Плитки / Кнопки */
@@ -141,7 +148,7 @@
       gap: 15px;
     }
     select, button {
-      padding: 10px 15px;
+      padding: 12px 15px;
       font-size: 14px;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -150,6 +157,7 @@
     select {
       flex: 1;
       background: #fff;
+      width: 100%;
     }
     button.btn-primary {
       background: #0d0d0d;
@@ -157,6 +165,7 @@
       cursor: pointer;
       border: none;
       transition: background 0.2s;
+      white-space: nowrap;
     }
     button.btn-primary:hover {
       background: #333;
@@ -201,6 +210,7 @@
       font-size: 14px;
       color: #d32f2f;
       text-decoration: underline;
+      word-break: break-all;
     }
 
     .update-date {
@@ -243,6 +253,7 @@
       align-items: center;
       padding: 12px 0;
       border-bottom: 1px solid #f0f0f0;
+      gap: 15px;
     }
 
     /* --- СЕКЦИЯ 3: ПАЦИЕНТАМ --- */
@@ -281,6 +292,8 @@
       cursor: pointer;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 10px;
     }
     .faq-body {
       padding: 15px;
@@ -304,6 +317,7 @@
     }
     .about-photo img {
       max-width: 220px;
+      width: 100%;
       border-radius: 4px;
     }
     .author-name {
@@ -328,12 +342,14 @@
     footer {
       background-color: #0d0d0d;
       color: #ffffff;
-      height: 60px;
+      min-height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
+      padding: 15px 40px;
       font-size: 12px;
+      flex-wrap: wrap;
+      gap: 15px;
     }
     .footer-links {
       display: flex;
@@ -343,6 +359,94 @@
       color: #fff;
       cursor: pointer;
     }
+
+    /* --- АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА (MEDIA QUERIES) --- */
+    @media (max-width: 992px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+      .header-nav {
+        justify-content: center;
+        gap: 12px;
+      }
+      
+      .hero-banner {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 25px;
+      }
+      .hero-text {
+        font-size: 20px;
+      }
+      .hero-image {
+        text-align: center;
+      }
+      .hero-image img {
+        max-width: 80%;
+      }
+
+      .search-controls {
+        flex-direction: column;
+      }
+      button.btn-primary {
+        width: 100%;
+      }
+
+      .flags-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rec-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .rec-item button {
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      .about-wrapper {
+        flex-direction: column-reverse;
+        gap: 25px;
+      }
+      .about-photo {
+        text-align: center;
+        width: 100%;
+      }
+      .about-photo img {
+        max-width: 200px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 20px 15px;
+      }
+      .tile-card {
+        min-height: 70px;
+      }
+      .hero-image img {
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -350,16 +454,16 @@
   <!-- ШАПКА -->
   <header>
     <nav class="header-nav">
-      <a href="#doctors">Врачам</a>
-      <a href="#patients">Пациентам</a>
-      <a href="#recommendations">Клинические рекомендации</a>
+      <a href="#doctors"> • Врачам</a>
+      <a href="#patients"> • Пациентам</a>
+      <a href="#recommendations"> • Клинические рекомендации</a>
     </nav>
     <div class="brand-logo">
       <span class="red-o">О</span>нко<span class="red-o">О</span>сторожность
     </div>
     <nav class="header-nav">
-      <a href="#patients">Красные флаги — чек-лист симптомов</a>
-      <a href="#search-section">Найти онкоцентр</a>
+      <a href="#patients"> • Красные флаги — чек-лист симптомов</a>
+      <a href="#search-section"> • Найти онкоцентр</a>
     </nav>
   </header>
 
@@ -377,6 +481,7 @@
         </div>
       </div>
 
+   
 
       <!-- Поиск онкоцентра -->
       <div id="search-section" class="search-box">
@@ -521,7 +626,15 @@
             Сайт «ОнкоОсторожность» - это информационно-навигационный ресурс для ранней диагностики костных опухолей у детей. Проект ориентирован на врачей-травматологов, ортопедов, детских онкологов, а также родителей пациентов. Сайт объединяет образовательные материалы (красные флаги, клинические рекомендации), памятки для родителей и интерактивный навигатор по детским онкоцентрам России.
           </div>
           
-          
+          <div class="meta-block">
+            <strong>Целевая аудитория:</strong>
+            <p>Врачи (травматологи-ортопеды, детские хирурги, онкологи), родители, студенты и ординаторы.</p>
+          </div>
+          <div class="meta-block">
+            <strong>Цель сайта:</strong>
+            <p>Сократить время диагностики костных опухолей у детей за счёт повышения онкологической настороженности, обучения родителей и навигации по центрам.</p>
+          </div>
+        </div>
         
         <div class="about-photo">
           <img src="https://images.unsplash.com/photo-1594824813572-c2e401c1074e?auto=format&fit=crop&w=400&q=80" alt="Степанова Кристина Сергеевна">
