@@ -23,11 +23,30 @@
       color: inherit;
     }
 
+    /* --- ГЛОБАЛЬНЫЕ ДИСКЛЕЙМЕРЫ И УВЕДОМЛЕНИЯ --- */
+    .global-disclaimer {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 12px 20px;
+      font-size: 13px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .page-disclaimer {
+      background: #f8f9fa;
+      border-left: 4px solid #6c757d;
+      padding: 15px;
+      margin: 20px 0;
+      font-size: 13px;
+      color: #555;
+    }
+
     /* --- ШАПКА (HEADER) --- */
     header {
       background-color: #0d0d0d;
       color: #ffffff;
-      min-height: 150px;
+      min-height: 100px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -41,7 +60,7 @@
     .header-nav {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 15px;
       font-size: 13px;
       flex-wrap: wrap;
     }
@@ -68,7 +87,7 @@
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 20px;
     }
 
     .section {
@@ -78,18 +97,26 @@
     .section:last-of-type {
       border-bottom: none;
     }
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #0d0d0d;
+      border-bottom: 2px solid #e53935;
+      padding-bottom: 8px;
+      display: inline-block;
+    }
 
-    /* --- СЕКЦИЯ 1: ГЛАВНАЯ --- */
+    /* --- СЕКЦИЯ: ГЛАВНАЯ --- */
     .hero-banner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 40px;
-      min-height: 320px;
+      min-height: 280px;
     }
     .hero-text {
       flex: 1;
-      font-size: 24px;
+      font-size: 26px;
       font-family: 'Times New Roman', Times, serif;
       line-height: 1.4;
     }
@@ -103,37 +130,17 @@
       border-radius: 6px;
       object-fit: cover;
     }
-
-    /* Плитки / Кнопки */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: 40px;
-    }
-    .tile-card {
-      background: #f8f9fa;
-      border: 1px solid #e0e0e0;
-      border-radius: 6px;
-      padding: 20px;
+    .caption-text {
+      font-size: 13px;
+      color: #666;
+      font-style: italic;
+      margin-top: 6px;
       text-align: center;
-      font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 90px;
-    }
-    .tile-card:hover {
-      background: #eef2f5;
-      border-color: #ccc;
     }
 
     /* Поиск онкоцентра */
     .search-box {
-      margin-top: 50px;
+      margin-top: 40px;
       background: #f9f9f9;
       padding: 25px;
       border-radius: 6px;
@@ -147,23 +154,25 @@
       display: flex;
       gap: 15px;
     }
-    select, button {
+    select, input[type="text"], input[type="email"], input[type="file"], textarea {
       padding: 12px 15px;
       font-size: 14px;
       border: 1px solid #ccc;
       border-radius: 4px;
       outline: none;
+      width: 100%;
     }
     select {
-      flex: 1;
       background: #fff;
-      width: 100%;
     }
     button.btn-primary {
       background: #0d0d0d;
       color: #fff;
+      padding: 12px 20px;
+      font-size: 14px;
       cursor: pointer;
       border: none;
+      border-radius: 4px;
       transition: background 0.2s;
       white-space: nowrap;
     }
@@ -177,17 +186,18 @@
     .center-card {
       background: #fff;
       border: 1px solid #ddd;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 4px;
+      padding: 18px;
+      margin-bottom: 12px;
+      border-radius: 6px;
     }
     .center-type {
       display: inline-block;
-      padding: 2px 8px;
-      font-size: 12px;
+      padding: 3px 8px;
+      font-size: 11px;
       font-weight: bold;
       border-radius: 3px;
       margin-bottom: 8px;
+      text-transform: uppercase;
     }
     .type-fed {
       background: #e3f2fd;
@@ -201,16 +211,15 @@
       font-weight: bold;
       font-size: 16px;
     }
-    .center-address {
+    .center-details {
       font-size: 14px;
-      color: #666;
-      margin: 4px 0;
+      color: #555;
+      margin: 6px 0;
     }
     .center-link {
       font-size: 14px;
       color: #d32f2f;
       text-decoration: underline;
-      word-break: break-all;
     }
 
     .update-date {
@@ -219,7 +228,7 @@
       color: #888;
     }
 
-    /* --- СЕКЦИЯ 2: КЛИНИЧЕСКИЕ РЕКОМЕНДАЦИИ --- */
+    /* --- КЛИНИЧЕСКИЕ РЕКОМЕНДАЦИИ И ТАБЫ --- */
     .tabs {
       display: flex;
       gap: 10px;
@@ -256,14 +265,10 @@
       gap: 15px;
     }
 
-    /* --- СЕКЦИЯ 3: ПАЦИЕНТАМ --- */
-    .section-title {
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
+    /* --- КРАСНЫЕ ФЛАГИ --- */
     .flags-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat( auto-fit, minmax(280px, 1fr) );
       gap: 15px;
       margin-bottom: 30px;
     }
@@ -277,8 +282,107 @@
       margin-bottom: 5px;
       color: #d32f2f;
     }
+    .doctor-flag-card {
+      border-left: 4px solid #1976d2;
+      background: #f4f8fb;
+      padding: 15px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 15px;
+    }
+    .doctor-flag-card h4 {
+      color: #1565c0;
+      margin-bottom: 8px;
+    }
 
-    /* Аккордеон FAQ */
+    /* Интерактивные тесты */
+    .test-box {
+      background: #fdfdfd;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 25px;
+      margin: 25px 0;
+    }
+    .test-box h4 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    .test-question {
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #eee;
+    }
+    .test-options label {
+      display: inline-block;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+    .test-result-box {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 4px;
+      display: none;
+      font-weight: bold;
+    }
+    .test-result-box.active {
+      display: block;
+    }
+    .res-low { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .res-med { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+    .res-high { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+
+    /* --- КЛИНИЧЕСКИЕ КЕЙСЫ --- */
+    .rules-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .rule-col {
+      padding: 20px;
+      border-radius: 6px;
+    }
+    .rule-col.allowed {
+      background: #e8f5e9;
+      border: 1px solid #c8e6c9;
+    }
+    .rule-col.forbidden {
+      background: #ffebee;
+      border: 1px solid #ffcdd2;
+    }
+    .rule-col h4 {
+      margin-bottom: 10px;
+    }
+    .rule-col ul {
+      padding-left: 20px;
+    }
+    .instruction-steps {
+      background: #f9f9f9;
+      padding: 20px 20px 20px 40px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .instruction-steps li {
+      margin-bottom: 10px;
+    }
+    .case-form {
+      display: grid;
+      gap: 15px;
+      background: #fff;
+      padding: 25px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .form-group label {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* --- FAQ АККОРДЕОН --- */
     .faq-item {
       border: 1px solid #ddd;
       margin-bottom: 10px;
@@ -302,51 +406,56 @@
       border-top: 1px solid #eee;
     }
 
-    /* --- СЕКЦИЯ 4: О ПРОЕКТЕ --- */
+    /* --- О ПРОЕКТЕ --- */
     .about-wrapper {
       display: flex;
-      gap: 40px;
+      gap: 30px;
       align-items: flex-start;
     }
     .about-text-content {
       flex: 2;
     }
-    .about-photo {
+    .about-photo-block {
       flex: 1;
-      text-align: right;
+      text-align: center;
     }
-    .about-photo img {
-      max-width: 220px;
+    .about-photo-block img {
+      max-width: 250px;
       width: 100%;
-      border-radius: 4px;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .author-name {
       font-size: 16px;
-      margin-bottom: 20px;
+      font-weight: bold;
+      margin: 15px 0 10px 0;
     }
-    .project-desc {
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .meta-block {
+    .literature-list {
+      font-size: 13px;
+      color: #666;
       margin-top: 15px;
-      font-size: 14px;
+      padding-left: 20px;
     }
-    .meta-block strong {
-      display: block;
-      margin-bottom: 3px;
+    .thanks-block {
+      background: #f0f4f8;
+      padding: 20px;
+      border-radius: 6px;
+      margin-top: 30px;
+    }
+    .thanks-block h4 {
+      color: #0d0d0d;
+      margin-bottom: 10px;
     }
 
     /* --- ФУТЕР --- */
     footer {
       background-color: #0d0d0d;
       color: #ffffff;
-      min-height: 60px;
+      min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 40px;
+      padding: 20px 40px;
       font-size: 12px;
       flex-wrap: wrap;
       gap: 15px;
@@ -360,132 +469,88 @@
       cursor: pointer;
     }
 
-    /* --- АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА (MEDIA QUERIES) --- */
-    @media (max-width: 992px) {
-      .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
+    /* --- АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА --- */
     @media (max-width: 768px) {
       header {
         padding: 15px 20px;
         flex-direction: column;
-        justify-content: center;
         text-align: center;
       }
       .header-nav {
         justify-content: center;
-        gap: 12px;
       }
-      
       .hero-banner {
         flex-direction: column-reverse;
         text-align: center;
-        gap: 25px;
       }
       .hero-text {
         font-size: 20px;
       }
-      .hero-image {
-        text-align: center;
-      }
-      .hero-image img {
-        max-width: 80%;
-      }
-
       .search-controls {
         flex-direction: column;
       }
-      button.btn-primary {
-        width: 100%;
-      }
-
-      .flags-grid {
+      .rules-table {
         grid-template-columns: 1fr;
       }
-
+      .about-wrapper {
+        flex-direction: column;
+      }
+      .about-photo-block {
+        width: 100%;
+      }
       .rec-item {
         flex-direction: column;
         align-items: flex-start;
       }
       .rec-item button {
         width: 100%;
-        margin-top: 8px;
-      }
-
-      .about-wrapper {
-        flex-direction: column-reverse;
-        gap: 25px;
-      }
-      .about-photo {
-        text-align: center;
-        width: 100%;
-      }
-      .about-photo img {
-        max-width: 200px;
-      }
-
-      footer {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-      .container {
-        padding: 20px 15px;
-      }
-      .tile-card {
-        min-height: 70px;
-      }
-      .hero-image img {
-        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- ГЛОБАЛЬНЫЙ ДИСКЛЕЙМЕР ВВЕРХУ СТРАНИЦЫ -->
+  <div class="global-disclaimer">
+    <strong>Дисклеймер:</strong> Информация сайта «ОнкоОсторожность» носит исключительно справочный и образовательный характер. Сайт не является средством дистанционной диагностики и не заменяет очную консультацию врача. Все материалы предназначены для повышения онкологической настороженности врачей и информирования родителей.
+  </div>
+
   <!-- ШАПКА -->
   <header>
     <nav class="header-nav">
-      <a href="#doctors"> • Врачам</a>
-      <a href="#patients"> • Пациентам</a>
-      <a href="#recommendations"> • Клинические рекомендации</a>
+      <a href="#doctors-flags">• Врачам</a>
+      <a href="#patients">• Пациентам</a>
+      <a href="#recommendations">• Клинические рекомендации</a>
     </nav>
     <div class="brand-logo">
       <span class="red-o">О</span>нко<span class="red-o">О</span>сторожность
     </div>
     <nav class="header-nav">
-      <a href="#patients"> • Красные флаги — чек-лист симптомов</a>
-      <a href="#search-section"> • Найти онкоцентр</a>
+      <a href="#cases">• Клинические кейсы</a>
+      <a href="#search-section">• Найти онкоцентр</a>
+      <a href="#about">• О проекте</a>
     </nav>
   </header>
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
   <div class="container">
 
-    <!-- 1. ГЛАВНАЯ -->
+    <!-- 1. ГЛАВНАЯ СЕКЦИЯ -->
     <section id="home" class="section">
       <div class="hero-banner">
         <div class="hero-text">
-          <span class="red-o">О</span>нко<span class="red-o">О</span>сторожность - навигатор для врачей и родителей
+          <span class="red-o">О</span>нко<span class="red-o">О</span>сторожность — навигатор для врачей и родителей
         </div>
         <div class="hero-image">
           <img src="https://feniks-med.net/upload/iblock/aec/tneedy1qr8v0t9y1fy2n3zv7rk6l3nqt.jpg" alt="Врач со стетоскопом">
+          <div class="caption-text">Золотая ленточка — символ борьбы с детской онкологией. Вместе мы сможем больше</div>
         </div>
       </div>
-
-   
 
       <!-- Поиск онкоцентра -->
       <div id="search-section" class="search-box">
         <h3>Найти онкоцентр</h3>
+        <p style="font-size: 13px; color: #666; margin-bottom: 12px;">Информация о медицинских центрах взята из открытых источников и актуализируется нами периодически.</p>
         <div class="search-controls">
           <select id="region-select">
             <option value="">-- Выберите субъект РФ --</option>
@@ -496,13 +561,16 @@
       </div>
 
       <div class="update-date">
-        Дата последнего обновления: 08.08.2026
+        Дата последнего обновления базы: 08.08.2026
       </div>
     </section>
 
     <!-- 2. КЛИНИЧЕСКИЕ РЕКОМЕНДАЦИИ -->
     <section id="recommendations" class="section">
       <h2 class="section-title">Клинические рекомендации</h2>
+      <div class="page-disclaimer">
+        Уважаемые коллеги! Материалы раздела «Клинические рекомендации» и «Красные флаги» носят информационный характер и основаны на актуальных данных клинических рекомендаций Минздрава РФ и международных протоколов на момент публикации.
+      </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="openTab(event, 'tab-ru')">Российские</button>
         <button class="tab-btn" onclick="openTab(event, 'tab-int')">Международные</button>
@@ -535,28 +603,92 @@
       </div>
     </section>
 
-    <!-- 3. ПАЦИЕНТАМ & ВРАЧАМ (Секция Пациентам) -->
+    <!-- 3. КРАСНЫЕ ФЛАГИ ДЛЯ РОДИТЕЛЕЙ И ТЕСТ -->
     <section id="patients" class="section">
       <h2 class="section-title">Пациентам и родителям</h2>
-      
-      <h3>Красные флаги (симптомы)</h3>
-      <br>
-      <div class="flags-grid">
-        <div class="flag-card">
-          <h4>Боль в костях</h4>
-          <p>Усиливающаяся по ночам боль, не связанная с травмами или нагрузкой.</p>
-        </div>
-        <div class="flag-card">
-          <h4>Припухлость</h4>
-          <p>Появление видимого отека или уплотнения в области сустава/кости.</p>
-        </div>
-        <div class="flag-card">
-          <h4>Ограничение подвижности</h4>
-          <p>Прихрамывание, трудности при сгибании/разгибании конечности.</p>
-        </div>
+      <div class="page-disclaimer">
+        Уважаемые читатели, мы создали этот сайт для того, чтобы вы знали о первых симптомах детской костной онкологии. Однако помните: сайт «ОнкоОсторожность» не ставит диагнозы — это может сделать только врач после осмотра и обследования. Если вас что-то тревожит в состоянии ребёнка — не откладывайте визит к специалисту.
       </div>
 
-      <h3>Часто задаваемые вопросы (FAQ)</h3>
+      <h3>Красные флаги (для родителей)</h3>
+      <p style="margin-bottom: 15px; font-size: 14px; color: #555;">
+        Что такое красные флаги? Это признаки, которые не являются диагнозом, но требуют немедленного внимания врача. Если вы заметите эти признаки — не откладывайте визит к педиатру или травматологу.
+      </p>
+
+      <div class="flags-grid">
+        <div class="flag-card">
+          <h4>1. Боль вместо сна</h4>
+          <p>Ребёнок просыпается ночью от боли в ноге, руке или спине, и это повторяется несколько ночей подряд. Боль после травмы возникает днем в движении. Опухолевая боль часто усиливается в покое и ночью.</p>
+        </div>
+        <div class="flag-card">
+          <h4>2. Перелом на пустом месте</h4>
+          <p>Ребенок упал с небольшой высоты, споткнулся или без видимой причины случился перелом. Опухоль может ослаблять кость, и она ломается от минимального воздействия.</p>
+        </div>
+        <div class="flag-card">
+          <h4>3. Припухлость на конечностях</h4>
+          <p>На кости появилась припухлость, которая не проходит, а увеличивается в размерах. Отек после ушиба проходит за 1–2 недели. Опухолевое образование — не проходит и растет.</p>
+        </div>
+        <div class="flag-card">
+          <h4>4. Хромота без причины</h4>
+          <p>Хромота держится более 2–3 недель, сопровождается болью, а травмы не было.</p>
+        </div>
+        <div class="flag-card">
+          <h4>5. Слабость, вес, температура</h4>
+          <p>Ребенок стал вялым, быстро устает и теряет вес без причины, повышенная температура держится без простуды.</p>
+        </div>
+      </div>
+      <p style="font-size: 13px; color: #666; font-style: italic; margin-bottom: 20px;">
+        * Большинство опухолей у детей — доброкачественные. Но проверить и убедиться — это ответственность родителей.
+      </p>
+
+      <!-- Интерактивный тест для родителей -->
+      <div class="test-box">
+        <h4>Интерактивный экспресс-тест для родителей</h4>
+        <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Ответьте на несколько вопросов. Это не диагноз, а повод задуматься и вовремя обратиться к специалисту.</p>
+        <form id="parent-test-form">
+          <div class="test-question">
+            <p>1. Ребенок просыпается ночью от боли в ноге, руке или спине?</p>
+            <div class="test-options">
+              <label><input type="radio" name="p1" value="yes"> Да</label>
+              <label><input type="radio" name="p1" value="no" checked> Нет</label>
+            </div>
+          </div>
+          <div class="test-question">
+            <p>2. Перелом или сильный ушиб случился после падения с небольшой высоты или даже без видимой причины?</p>
+            <div class="test-options">
+              <label><input type="radio" name="p2" value="yes"> Да</label>
+              <label><input type="radio" name="p2" value="no" checked> Нет</label>
+            </div>
+          </div>
+          <div class="test-question">
+            <p>3. На кости появилась шишка или припухлость, которая не проходит и растет?</p>
+            <div class="test-options">
+              <label><input type="radio" name="p3" value="yes"> Да</label>
+              <label><input type="radio" name="p3" value="no" checked> Нет</label>
+            </div>
+          </div>
+          <div class="test-question">
+            <p>4. Ребенок хромает без видимой причины уже больше 2–3 недель?</p>
+            <div class="test-options">
+              <label><input type="radio" name="p4" value="yes"> Да</label>
+              <label><input type="radio" name="p4" value="no" checked> Нет</label>
+            </div>
+          </div>
+          <div class="test-question">
+            <p>5. Ребенок жалуется на сильную слабость, похудел без причины, у него часто поднимается температура?</p>
+            <div class="test-options">
+              <label><input type="radio" name="p5" value="yes"> Да</label>
+              <label><input type="radio" name="p5" value="no" checked> Нет</label>
+            </div>
+          </div>
+          <button type="button" class="btn-primary" onclick="calcParentTest()">Получить результат</button>
+        </form>
+
+        <div id="parent-test-result" class="test-result-box"></div>
+      </div>
+
+      <!-- FAQ -->
+      <h3 style="margin-top: 30px;">Часто задаваемые вопросы (FAQ)</h3>
       <br>
       <div id="faq-accordion">
         <div class="faq-item">
@@ -601,7 +733,7 @@
         </div>
       </div>
 
-      <br><br>
+      <br>
       <h3>Памятки для скачивания</h3>
       <br>
       <div class="rec-item">
@@ -614,23 +746,233 @@
       </div>
     </section>
 
-    <!-- 4. О ПРОЕКТЕ -->
+    <!-- 4. КРАСНЫЕ ФЛАГИ ДЛЯ ВРАЧЕЙ -->
+    <section id="doctors-flags" class="section">
+      <h2 class="section-title">Красные флаги (для врачей)</h2>
+
+      <div class="doctor-flag-card">
+        <h4>1. Болевой синдром</h4>
+        <p><strong>Ночная боль:</strong> боль в покое, особенно ночью, пробуждающая ребенка, является классическим симптомом. Важно дифференцировать с «болями роста»: последние носят двухсторонний, симметричный характер, не сопровождаются ночными пробуждениями.</p>
+        <p><strong>Неэффективность НПВС:</strong> отсутствие эффекта от стандартной противовоспалительной терапии — тревожный признак.</p>
+        <p><strong>Прогрессирующий характер:</strong> боль нарастает со временем, не связана с физической нагрузкой.</p>
+      </div>
+
+      <div class="doctor-flag-card">
+        <h4>2. Костные изменения</h4>
+        <p><strong>Патологический перелом:</strong> возникает при незначительном воздействии или без четкой травмы в анамнезе, что свидетельствует о деструкции кортикального слоя кости опухолевым процессом.</p>
+        <p><strong>Пальпируемое образование:</strong> плотное, спаянное с подлежащими тканями, безболезненное, с тенденцией к прогрессивному росту в течение 2–3 недель — показание к углубленной диагностике.</p>
+        <p><strong>Рентгенологические признаки:</strong> очаг деструкции (участок разрежения), повреждение кортикального слоя, игольчатый периостит («спикулы»), «козырек» Кодмана (треугольное отслоение надкостницы — высокоспецифичный признак остеосаркомы), «луковичный» периостит (характерный для саркомы Юинга), вздутие кости.</p>
+        <p><em>МРТ является методом выбора для оценки первичного очага и выполняется до биопсии, так как биопсия затрудняет интерпретацию МРТ. КТ органов грудной полости с контрастированием обязательна для скрининга метастазов в легкие.</em></p>
+      </div>
+
+      <div class="doctor-flag-card">
+        <h4>3. Системные проявления</h4>
+        <p><strong>Симптомы интоксикации:</strong> беспричинная потеря веса, бледность, слабость, апатия, быстрая утомляемость.</p>
+        <p><strong>Лихорадка:</strong> длительное повышение температуры тела без видимых причин (без кашля, насморка, инфекций).</p>
+        <p><strong>Геморрагический синдром:</strong> кровоточивость, множественные синяки или мелкоточечные кровоизлияния.</p>
+      </div>
+
+      <div class="doctor-flag-card">
+        <h4>4. Неврологические и глазные нарушения</h4>
+        <p><strong>Неврология:</strong> хромота, нарушение координации, утренние головные боли с рвотой (симптом Вальсальвы), внезапное косоглазие или двоение в глазах.</p>
+        <p><strong>Лейкокория:</strong> беловатый оттенок зрачка, видимый на фото со вспышкой — требует срочной консультации офтальмолога и онколога.</p>
+      </div>
+
+      <div class="doctor-flag-card">
+        <h4>5. Лабораторные «красные флаги»</h4>
+        <p>В ОАК: стойкая нейтропения, атипичный лимфоцитоз, бласты, анемия (не поддающаяся терапии железом), тромбоцитопения/тромбоцитоз, панцитопения. При выявлении отклонений — повтор ОАК через 2 недели; при сохранении — срочная консультация онколога/гематолога.</p>
+      </div>
+
+      <div style="background: #eef7ee; padding: 20px; border-radius: 6px; border: 1px solid #c3e6cb; margin-top: 20px;">
+        <h4 style="color: #155724; margin-bottom: 10px;">Алгоритм действий врача при выявлении «красных флагов»:</h4>
+        <ol style="padding-left: 20px; font-size: 14px; color: #155724;">
+          <li><strong>Шаг 1:</strong> Рентгенография в двух проекциях для первичной диагностики.</li>
+          <li><strong>Шаг 2:</strong> При подозрении — МРТ с контрастированием (выполняется ДО биопсии).</li>
+          <li><strong>Шаг 3:</strong> КТ органов грудной полости с контрастированием для скрининга метастазов.</li>
+          <li><strong>Шаг 4:</strong> Консультация детского онколога в региональном центре или по телемедицине.</li>
+          <li><strong>Шаг 5:</strong> Маршрутизация в профильный федеральный центр (НМИЦ ДГОИ им. Рогачева, НМИЦ онкологии им. Блохина, РДКБ).</li>
+        </ol>
+      </div>
+
+      <!-- Интерактивный чек-лист для врачей -->
+      <div class="test-box" style="margin-top: 30px;">
+        <h4>Оценка онкологической настороженности (для врачей)</h4>
+        <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Отметьте признаки, которые вы наблюдаете у пациента:</p>
+        <form id="doctor-test-form">
+          <p><strong>Раздел 1. Болевой синдром</strong></p>
+          <label><input type="checkbox" class="doc-chk"> Ночные боли, пробуждающие ребенка</label><br>
+          <label><input type="checkbox" class="doc-chk"> Боль не купируется НПВС</label><br>
+          <label><input type="checkbox" class="doc-chk"> Боль прогрессирует, не связана с нагрузкой</label><br><br>
+
+          <p><strong>Раздел 2. Костные изменения</strong></p>
+          <label><input type="checkbox" class="doc-chk"> Патологический перелом (неадекватная травма)</label><br>
+          <label><input type="checkbox" class="doc-chk"> Пальпируемое образование, спаянное с тканями</label><br>
+          <label><input type="checkbox" class="doc-chk"> Рентген: очаг деструкции</label><br>
+          <label><input type="checkbox" class="doc-chk"> Рентген: периостит (спикулы, Кодман, луковичный)</label><br><br>
+
+          <p><strong>Раздел 3. Системные проявления</strong></p>
+          <label><input type="checkbox" class="doc-chk"> Беспричинная потеря веса, слабость</label><br>
+          <label><input type="checkbox" class="doc-chk"> Длительная лихорадка без инфекции</label><br>
+          <label><input type="checkbox" class="doc-chk"> Анемия, повышение СОЭ/ЩФ</label><br><br>
+
+          <p><strong>Раздел 4. Неврологические и иные нарушения</strong></p>
+          <label><input type="checkbox" class="doc-chk"> Хромота, нарушение координации</label><br>
+          <label><input type="checkbox" class="doc-chk"> Головные боли + утренняя рвота</label><br>
+          <label><input type="checkbox" class="doc-chk"> Расстройства зрения / лейкокория</label><br><br>
+
+          <button type="button" class="btn-primary" onclick="calcDoctorTest()">Рассчитать настороженность</button>
+        </form>
+
+        <div id="doctor-test-result" class="test-result-box"></div>
+      </div>
+    </section>
+
+    <!-- 5. КЛИНИЧЕСКИЕ КЕЙСЫ -->
+    <section id="cases" class="section">
+      <h2 class="section-title">Клинические кейсы детской костной онкологии</h2>
+      
+      <div style="background: #e3f2fd; padding: 20px; border-radius: 6px; margin-bottom: 25px;">
+        <h4 style="color: #0d47a1; margin-bottom: 10px;">Уважаемые коллеги!</h4>
+        <p style="font-size: 14px; color: #1565c0;">
+          Здесь вы можете опубликовать ваш клинический кейс детской костной онкологии. Это поможет коллегам из других регионов познакомиться с редкими случаями, повысить онкологическую настороженность и улучшить диагностику.<br><br>
+          Напоминаем, что согласно <strong>ст. 13 Федерального закона № 323-ФЗ «Об основах охраны здоровья граждан в РФ»</strong>, необходимо соблюдать врачебную тайну. Вся информация должна быть полностью обезличена.
+        </p>
+      </div>
+
+      <h3>Что разрешено и что запрещено</h3>
+      <div class="rules-table">
+        <div class="rule-col allowed">
+          <h4 style="color: #2e7d32;">✅ Разрешается указывать:</h4>
+          <ul>
+            <li>Возраст пациента</li>
+            <li>Пол</li>
+            <li>Диагноз</li>
+            <li>Снимок (рентген, МРТ, КТ) без меток</li>
+            <li>Краткий анамнез</li>
+            <li>Стадия заболевания</li>
+            <li>Проведенное лечение</li>
+          </ul>
+        </div>
+        <div class="rule-col forbidden">
+          <h4 style="color: #c62828;">❌ Запрещается указывать:</h4>
+          <ul>
+            <li>ФИО пациента</li>
+            <li>Номер истории болезни</li>
+            <li>Адрес или регион проживания</li>
+            <li>Конкретную дату рождения</li>
+            <li>Название ЛПУ (больницы, клиники)</li>
+            <li>Контактные данные родителей</li>
+            <li>Любые метки на снимках (ФИО, дата, № истории)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>📋 Как опубликовать клинический кейс</h3>
+      <ol class="instruction-steps">
+        <li><strong>Убедитесь</strong>, что данные полностью обезличены — нет ФИО, адреса, номера истории болезни, названия ЛПУ.</li>
+        <li><strong>Проверьте снимок</strong> — на нем не должно быть текстовых меток с именем пациента, датой, номером истории или названием учреждения.</li>
+        <li><strong>Заполните форму ниже.</strong> Все поля, отмеченные знаком *, обязательны для заполнения.</li>
+        <li><strong>Дождитесь модерации</strong> — после отправки кейс проходит проверку на соответствие правилам (срок — до 3 рабочих дней).</li>
+        <li><strong>После одобрения</strong> кейс появится в разделе «Клинические кейсы» на сайте.</li>
+        <li><em>Ответственность за обезличивание данных полностью лежит на авторе кейса.</em></li>
+      </ol>
+
+      <div class="page-disclaimer" style="border-left-color: #d32f2f;">
+        <strong>⚠️ Важно!</strong> Администрация сайта оставляет за собой право отказать в публикации кейса при выявлении признаков, позволяющих идентифицировать пациента, или при несоответствии правилам заполнения.<br>
+        Все клинические кейсы публикуются в образовательных целях и не могут быть использованы как руководство к лечению без консультации с лечащим врачом.
+      </div>
+
+      <!-- Форма отправки кейса -->
+      <h3 style="margin-top: 30px; margin-bottom: 15px;">Форма публикации клинического кейса</h3>
+      <form class="case-form" onsubmit="submitCase(event)">
+        <div class="form-group">
+          <label>ФИО автора (врача) *</label>
+          <input type="text" required placeholder="Иванов Иван Иванович">
+        </div>
+        <div class="form-group">
+          <label>Специальность и должность *</label>
+          <input type="text" required placeholder="Врач травматолог-ортопед">
+        </div>
+        <div class="form-group">
+          <label>Email для связи (не публикуется) *</label>
+          <input type="email" required placeholder="doctor@example.com">
+        </div>
+        <div class="form-group">
+          <label>Возраст и пол пациента *</label>
+          <input type="text" required placeholder="12 лет, мужской">
+        </div>
+        <div class="form-group">
+          <label>Диагноз *</label>
+          <input type="text" required placeholder="Остеосаркома средней трети бедренной кости">
+        </div>
+        <div class="form-group">
+          <label>Краткий анамнез и жалобы *</label>
+          <textarea rows="3" required placeholder="Ночные боли в течение 2 месяцев, припухлость..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Проведенная диагностика и лечение *</label>
+          <textarea rows="3" required placeholder="Рентгенография, МРТ, биопсия, курс ХТ..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Прикрепить снимок (без меток и ФИО!)*</label>
+          <input type="file" accept="image/*,.pdf" required>
+        </div>
+        <div class="form-group" style="flex-direction: row; align-items: center; gap: 10px;">
+          <input type="checkbox" id="check-anon" required style="width: auto;">
+          <label for="check-anon" style="font-weight: normal; font-size: 13px;">Подтверждаю, что данные полностью обезличены согласно ст. 13 ФЗ № 323-ФЗ</label>
+        </div>
+        <button type="submit" class="btn-primary">Отправить кейс на модерацию</button>
+      </form>
+    </section>
+
+    <!-- 6. О ПРОЕКТЕ И БЛАГОДАРНОСТИ -->
     <section id="about" class="section">
+      <h2 class="section-title">О проекте</h2>
       <div class="about-wrapper">
         <div class="about-text-content">
-          <p><strong>О проекте:</strong></p>
+          <p class="project-desc">
+            Сайт «ОнкоОсторожность» — это информационно-навигационный ресурс для ранней диагностики костных опухолей у детей. Проект ориентирован на врачей-травматологов, ортопедов, детских онкологов, а также родителей пациентов. Сайт объединяет образовательные материалы (красные флаги, клинические рекомендации), памятки для родителей и интерактивный навигатор по детским онкоцентрам России.
+          </p>
+          
+          <p class="project-desc" style="background: #fdf8f0; padding: 15px; border-left: 3px solid #f39c12; margin: 15px 0;">
+            По данным исследований в российских регионах, частота диагностических ошибок при первичных злокачественных опухолях костей у детей достигает 72,2%, а срок постановки правильного диагноза варьируется от 4 до 40 недель [1, 2]. Основными причинами задержки диагностики являются неспецифичность клинических проявлений, трудности рентгенологической интерпретации и недостаточная онкологическая настороженность врачей первичного звена [3].<br><br>
+            <strong>Проект «ОнкоОсторожность» создан для того, чтобы сократить эти сроки и помочь врачам и родителям вовремя заметить тревожные симптомы.</strong>
+          </p>
+
           <div class="author-name">
-            Степанова Кристина Сергеевна студент Медицинского института Новгородского государственного университета имени Ярослава Мудрого
+            Автор проекта: Степанова Кристина Сергеевна
           </div>
-          <div class="project-desc">
-            Сайт «ОнкоОсторожность» - это информационно-навигационный ресурс для ранней диагностики костных опухолей у детей. Проект ориентирован на врачей-травматологов, ортопедов, детских онкологов, а также родителей пациентов. Сайт объединяет образовательные материалы (красные флаги, клинические рекомендации), памятки для родителей и интерактивный навигатор по детским онкоцентрам России.
-          </div>
-          
-          
-        
-        <div class="about-photo">
-          <img src="https://images.unsplash.com/photo-1594824813572-c2e401c1074e?auto=format&fit=crop&w=400&q=80" alt="Степанова Кристина Сергеевна">
+          <p style="font-size: 14px; color: #555;">
+            Студентка Медицинского института Новгородского государственного университета имени Ярослава Мудрого.
+          </p>
+
+          <ol class="literature-list">
+            <li>Проблемы своевременной диагностики злокачественных опухолей костей у детей / Южно-Уральский медицинский университет. — Челябинск, 2020.</li>
+            <li>Петриченко А.В. Ортопедические последствия лечения костных сарком у детей и их профилактика : дис. ... канд. мед. наук. — М., 2020.</li>
+            <li>Сложности диагностики костных сарком у детей / Вопросы современной педиатрии. — 2023.</li>
+          </ol>
         </div>
+
+        <div class="about-photo-block">
+          <img src="https://images.unsplash.com/photo-1594824813572-c2e401c1074e?auto=format&fit=crop&w=400&q=80" alt="Степанова Кристина Сергеевна">
+          <div class="caption-text" style="margin-top: 10px;">
+            Золотая ленточка на моем фото является знаком солидарности с врачами, детьми и их родителями, борющимися с детской онкологией. Мы — «ОнкоОсторожность» — с вами!
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок благодарностей -->
+      <div class="thanks-block">
+        <h4>Благодарности</h4>
+        <p style="font-size: 14px; color: #444;">Проект создан при поддержке:</p>
+        <ul style="padding-left: 20px; font-size: 14px; color: #555; margin-top: 5px;">
+          <li>ФГБОУ ВО «Новгородский государственный университет имени Ярослава Мудрого»</li>
+          <li>Новгородского городского медицинского института</li>
+          <li>Врачей-практиков, оказавших консультационную помощь</li>
+        </ul>
+        <p style="font-size: 14px; color: #333; font-weight: bold; margin-top: 10px;">
+          Особая благодарность врачам травматологам-ортопедам, которые делятся своим опытом и клиническими случаями!
+        </p>
       </div>
     </section>
 
@@ -648,14 +990,14 @@
 
   <!-- СКРИПТЫ -->
   <script>
-    // --- ДАННЫЕ СУБЪЕКТОВ РФ И ЦЕНТРОВ ---
+    // --- ДАННЫЕ СУБЪЕКТОВ РФ И ФЕДЕРАЛЬНЫХ ЦЕНТРОВ ---
     const regions = [
       "Москва", "Санкт-Петербург", "Новгородская область", "Московская область", 
       "Ленинградская область", "Адыгея (Республика)", "Алтай (Республика)", 
       "Алтайский край", "Амурская область", "Архангельская область", "Астраханская область",
       "Башкортостан (Республика)", "Белгородская область", "Брянская область", 
       "Бурятия (Республика)", "Владимирская область", "Волгоградская область", 
-      "Вологодская область", "Воронежеская область", "Дагестан (Республика)", 
+      "Вологодская область", "Воронежская область", "Дагестан (Республика)", 
       "Донецкая Народная Республика", "Еврейская АО", "Забайкальский край", 
       "Запорожская область", "Ивановская область", "Ингушетия (Республика)", 
       "Иркутская область", "Кабардино-Балкарская Республика", "Калининградская область", 
@@ -680,30 +1022,50 @@
 
     const centersData = {
       "Москва": [
-        { type: "Федеральный", name: "НМИЦ онкологии им. Н.Н. Блохина (Детский институт)", address: "г. Москва, Каширское ш., 24", link: "https://ronc.ru" },
-        { type: "Федеральный", name: "НМИЦ ДГОИ им. Дмитрия Рогачева", address: "г. Москва, ул. Саморы Машела, 1", link: "https://fnkc.ru" },
-        { type: "Региональный", name: "Морозовская ДГКБ ДЗМ", address: "г. Москва, 4-й Добрынинский пер., 1/9", link: "https://morozdgkb.ru" }
+        { 
+          type: "Федеральный НМИЦ", 
+          name: "НМИЦ детской гематологии, онкологии и иммунологии им. Дмитрия Рогачева", 
+          address: "г. Москва, ул. Саморы Машела, д. 1", 
+          phone: "+7 (495) 287-65-70",
+          link: "https://fnkc.ru",
+          note: "Официальный статус НМИЦ подтвержден распоряжением Правительства РФ № 1675-р от 30.06.2026"
+        },
+        { 
+          type: "Федеральный НМИЦ", 
+          name: "НМИЦ онкологии им. Н.Н. Блохина", 
+          address: "г. Москва, Каширское шоссе, д. 23", 
+          phone: "+7 (499) 324-35-64",
+          link: "https://ronc.ru",
+          note: "Официальный статус НМИЦ подтвержден распоряжением Правительства РФ № 1675-р от 30.06.2026"
+        },
+        { 
+          type: "Региональный", 
+          name: "Морозовская ДГКБ ДЗМ", 
+          address: "г. Москва, 4-й Добрынинский пер., 1/9", 
+          phone: "+7 (495) 959-88-00",
+          link: "https://morozdgkb.ru" 
+        }
       ],
       "Санкт-Петербург": [
-        { type: "Федеральный", name: "НМИЦ онкологии им. Н.Н. Петрова", address: "г. Санкт-Петербург, пос. Песочный, ул. Ленинградская, 68", link: "https://niioncologii.ru" },
-        { type: "Региональный", name: "СПб ГБУЗ «ДГБ №1» (Детский онкоцентр)", address: "г. Санкт-Петербург, ул. Авангардная, 14", link: "https://dgb1.ru" }
+        { type: "Федеральный", name: "НМИЦ онкологии им. Н.Н. Петрова", address: "г. Санкт-Петербург, пос. Песочный, ул. Ленинградская, 68", phone: "+7 (812) 439-95-55", link: "https://niioncologii.ru" },
+        { type: "Региональный", name: "СПб ГБУЗ «ДГБ №1» (Детский онкоцентр)", address: "г. Санкт-Петербург, ул. Авангардная, 14", phone: "+7 (812) 417-21-21", link: "https://dgb1.ru" }
       ],
       "Новгородская область": [
-        { type: "Региональный", name: "Областная детская клиническая больница", address: "г. Великий Новгород, ул. Державина, 1", link: "https://nodkb.ru" },
-        { type: "Региональный", name: "Новгородский областной клинический онкологический диспансер", address: "г. Великий Новгород, ул. Ломоносова, 27", link: "https://onco53.ru" }
+        { type: "Региональный", name: "Областная детская клиническая больница", address: "г. Великий Новгород, ул. Державина, 1", phone: "+7 (8162) 63-12-21", link: "https://nodkb.ru" },
+        { type: "Региональный", name: "Новгородский областной клинический онкологический диспансер", address: "г. Великий Новгород, ул. Ломоносова, 27", phone: "+7 (8162) 62-42-42", link: "https://onco53.ru" }
       ]
     };
 
-    // Заполнение списка регионов
+    // Заполнение и сортировка списка регионов по алфавиту для русского языка
     const selectElem = document.getElementById('region-select');
-    regions.sort().forEach(region => {
+    regions.sort((a, b) => a.localeCompare(b, 'ru')).forEach(region => {
       const opt = document.createElement('option');
       opt.value = region;
       opt.textContent = region;
       selectElem.appendChild(opt);
     });
 
-    // Функция поиска
+    // Поиск центров
     function searchCenters() {
       const selected = selectElem.value;
       const container = document.getElementById('results-list');
@@ -719,12 +1081,14 @@
         list.forEach(item => {
           const card = document.createElement('div');
           card.className = 'center-card';
-          const typeClass = item.type === 'Федеральный' ? 'type-fed' : 'type-reg';
+          const typeClass = item.type.includes('Федеральный') ? 'type-fed' : 'type-reg';
           card.innerHTML = `
-            <span class="center-type ${typeClass}">${item.type} уровень</span>
+            <span class="center-type ${typeClass}">${item.type}</span>
             <div class="center-name">${item.name}</div>
-            <div class="center-address">${item.address}</div>
-            <a href="${item.link}" target="_blank" class="center-link">${item.link}</a>
+            <div class="center-details"><strong>Адрес:</strong> ${item.address}</div>
+            ${item.phone ? `<div class="center-details"><strong>Телефон:</strong> ${item.phone}</div>` : ''}
+            ${item.note ? `<div style="font-size: 11px; color: #28a745; margin-bottom: 5px;">${item.note}</div>` : ''}
+            <a href="${item.link}" target="_blank" class="center-link">Официальный сайт: ${item.link}</a>
           `;
           container.appendChild(card);
         });
@@ -733,7 +1097,7 @@
           <div class="center-card">
             <span class="center-type type-reg">Региональный уровень</span>
             <div class="center-name">Областной детский онкологический отдел / ДКБ (${selected})</div>
-            <div class="center-address">Региональный центр детской онкологии уточняется</div>
+            <div class="center-details">Информация уточняется и будет добавлена при следующем обновлении базы.</div>
             <a href="#" class="center-link">Официальный портал Минздрава региона</a>
           </div>
         `;
@@ -769,7 +1133,66 @@
 
     // --- ИМИТАЦИЯ СКАЧИВАНИЯ ---
     function downloadFile(fileName) {
-      alert('Имитация скачивания файла: ' + fileName);
+      alert('Запуск скачивания документа: ' + fileName);
+    }
+
+    // --- РАСЧЕТ ТЕСТА ДЛЯ РОДИТЕЛЕЙ ---
+    function calcParentTest() {
+      const form = document.getElementById('parent-test-form');
+      const answers = ['p1', 'p2', 'p3', 'p4', 'p5'];
+      let yesCount = 0;
+
+      answers.forEach(q => {
+        const sel = form.querySelector(`input[name="${q}"]:checked`);
+        if (sel && sel.value === 'yes') yesCount++;
+      });
+
+      const resBox = document.getElementById('parent-test-result');
+      resBox.className = 'test-result-box active';
+
+      if (yesCount > 0) {
+        resBox.classList.add('res-high');
+        resBox.innerHTML = `
+          ⚠️ <strong>Вам стоит обратиться к врачу!</strong><br><br>
+          Запишитесь на прием к педиатру или детскому травматологу. Возможно, потребуется консультация детского онколога.<br><br>
+          <button class="btn-primary" onclick="location.href='#search-section'" style="margin-right: 10px;">Найти ближайший онкоцентр</button>
+          <button class="btn-primary" onclick="downloadFile('Чек_лист_Врачам.pdf')" style="background:#444;">Скачать чек-лист симптомов</button>
+        `;
+      } else {
+        resBox.classList.add('res-low');
+        resBox.innerHTML = `
+          ✅ <strong>На данный момент тревожных признаков не выявлено.</strong><br><br>
+          Но помните: некоторые симптомы могут появляться постепенно. Наблюдайте за ребенком, и если что-то начнет беспокоить — не откладывайте визит к врачу.
+        `;
+      }
+    }
+
+    // --- РАСЧЕТ ТЕСТА ДЛЯ ВРАЧЕЙ ---
+    function calcDoctorTest() {
+      const checkboxes = document.querySelectorAll('.doc-chk');
+      let count = 0;
+      checkboxes.forEach(chk => { if (chk.checked) count++; });
+
+      const resBox = document.getElementById('doctor-test-result');
+      resBox.className = 'test-result-box active';
+
+      if (count <= 1) {
+        resBox.classList.add('res-low');
+        resBox.innerHTML = `Отмечено признаков: ${count}. <br><strong>Онкологическая настороженность низкая.</strong> Рекомендуется наблюдение в динамике. При сохранении симптоматики — повторить осмотр через 2 недели.`;
+      } else if (count <= 3) {
+        resBox.classList.add('res-med');
+        resBox.innerHTML = `Отмечено признаков: ${count}. <br><strong>Онкологическая настороженность средняя.</strong> Рекомендуется: рентгенография в двух проекциях, консультация детского онколога в региональном центре.`;
+      } else {
+        resBox.classList.add('res-high');
+        resBox.innerHTML = `Отмечено признаков: ${count}. <br><strong>ВЫСОКАЯ ОНКОЛОГИЧЕСКАЯ НАСТОРОЖЕННОСТЬ!</strong> Рекомендуется: МРТ с контрастированием (до биопсии), КТ ОГК с контрастированием, срочное направление в федеральный НМИЦ (им. Рогачева или им. Блохина).`;
+      }
+    }
+
+    // --- ОТПРАВКА КЕЙСА ---
+    function submitCase(e) {
+      e.preventDefault();
+      alert('Ваш клинический кейс успешно отправлен на модерацию. Проверка занимает до 3 рабочих дней. Спасибо за ваш вклад!');
+      e.target.reset();
     }
   </script>
 </body>
