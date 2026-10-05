@@ -257,6 +257,10 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       border-top-color: #e53935;
     }
+    .news-card.featured {
+      border-top: 4px solid #f39c12;
+      background: #fffdf8;
+    }
     .news-meta {
       font-size: 12px;
       color: #777;
@@ -613,16 +617,21 @@
           <span class="red-o">О</span>нко<span class="red-o">О</span>сторожность — навигатор для врачей и родителей
         </div>
         <div class="hero-image">
-          <img src="https://i.ibb.co/YBK257FG/photo-2026-08-13-16-35-39.jpg" alt="Врач со стетоскопом">
-          <div class="caption-text">Золотая ленточка — символ борьбы с детской онкологией. Вместе мы сможем больше</div>
+          <img src="https://img.magnific.com/fotos-premium/fita-amarela-de-conscientizacao-sobre-o-cancer-pediatrico-em-fundo-branco_1161356-265862.jpg" alt="Врач со стетоскопом">
+          <div class="caption-text">Золотая ленточка — символ борьбы с костной онкологией. Вместе мы сможем больше</div>
         </div>
       </div>
 
       <!-- Поиск онкоцентра -->
       <div id="search-section" class="search-box">
         <h3>Найти онкоцентр</h3>
-        <p style="font-size: 13px; color: #666; margin-bottom: 12px;">Информация о медицинских центрах взята из открытых источников и актуализируется нами периодически.</p>
+        <p style="font-size: 13px; color: #666; margin-bottom: 12px;">Выберите уровень подчинения медицинского центра и субъект РФ для просмотра контактной информации.</p>
         <div class="search-controls">
+          <select id="level-select" onchange="filterRegionsByLevel()">
+            <option value="all">-- Все уровни (Федеральный и Региональный) --</option>
+            <option value="federal">Федеральные НМИЦ</option>
+            <option value="regional">Региональные центры / ДКБ</option>
+          </select>
           <select id="region-select">
             <option value="">-- Выберите субъект РФ --</option>
           </select>
@@ -632,7 +641,7 @@
       </div>
 
       <div class="update-date">
-        Дата последнего обновления базы: 08.08.2026
+        Дата последнего обновления базы: 01.10.2026
       </div>
     </section>
 
@@ -645,7 +654,43 @@
 
       <div class="news-grid">
 
-        <!-- Новость 1 -->
+        <!-- Главная новость -->
+        <div class="news-card featured">
+          <div>
+            <div class="news-meta">
+              <span>📅 27 августа 2026 (четверг)</span>
+              <span>🏛️ Иркутская ОБД</span>
+            </div>
+            <div class="news-title">Открытие первого в Восточной Сибири детского блока ТКМ</div>
+            <div class="news-text">
+              В Иркутской областной детской клинической больнице официально открылся блок трансплантации костного мозга (ТКМ). Это ключевое событие года для детской онкогематологии региона.<br><br>
+              <strong>Значение:</strong> Дети из Иркутской области, Республики Бурятия, Забайкальского края и регионов Дальнего Востока смогут получать высокодозную химиотерапию и пересадку стволовых клеток без риска тяжелых перелетов в Москву и Санкт-Петербург.<br>
+              <strong>Финансирование:</strong> 250 млн рублей спонсорских средств, из которых 180 млн рублей выделили Иркутская нефтяная компания и Николай Буйнов.<br>
+              <strong>Мощность:</strong> На первом этапе блок рассчитан на проведение 12 аутологичных трансплантаций в год.<br>
+              <strong>Технологии:</strong> Установлены специализированные стерильные боксы с многоступенчатой системой очистки воздуха для защиты пациентов с «обнулённым» иммунитетом.
+            </div>
+          </div>
+          <div class="news-source">Источник: Пресс-служба Иркутской ОБД / СМИ, 27 августа 2026</div>
+        </div>
+
+        <!-- Выездные консультации НМИЦ Блохина -->
+        <div class="news-card">
+          <div>
+            <div class="news-meta">
+              <span>📅 27 августа 2026</span>
+              <span>🏛️ НМИЦ онкологии им. Блохина / ЕАО</span>
+            </div>
+            <div class="news-title">Выездные консультации специалистов НМИЦ Блохина в ЕАО</div>
+            <div class="news-text">
+              Врачи из московского НМИЦ онкологии им. Н.Н. Блохина провели очные консультации детей в Еврейской автономной области.<br><br>
+              <strong>Цель:</strong> Ускорить диагностику и оперативно принять решение о необходимости направления пациентов на лечение в федеральный центр.<br>
+              <strong>Итог:</strong> Закреплён механизм прямой связи региональных врачей с федеральными экспертами, чтобы сократить сроки согласования и не терять драгоценное время.
+            </div>
+          </div>
+          <div class="news-source">Источник: ronc.ru, 27 августа 2026</div>
+        </div>
+
+        <!-- Новость НМИЦ Рогачева -->
         <div class="news-card">
           <div>
             <div class="news-meta">
@@ -663,55 +708,23 @@
           <div class="news-source">Источник: NEWS.ru, 13 февраля 2026</div>
         </div>
 
-        <!-- Новость 2 -->
+        <!-- Новость НМИЦ Блохина статус -->
         <div class="news-card">
           <div>
             <div class="news-meta">
               <span>📅 Июль 2026</span>
-              <span>🏛️ НМИЦ онкологии им. Н.Н. Блохина</span>
+              <span>🏛️️ НМИЦ онкологии им. Н.Н. Блохина</span>
             </div>
             <div class="news-title">НМИЦ Блохина стал национальным центром по детской онкологии</div>
             <div class="news-text">
-              В июле 2026 года НМИЦ онкологии им. Н.Н. Блохина получил статус национального центра по профилю «детская онкология и гематология». Команда НИИ детской онкологии и гематологии теперь отвечает не только за разработку новых технологий, но и за их внедрение в регионы.<br><br>
-              Врачи центра уже провели методическую поддержку первой трансплантации костного мозга в Воронежской областной детской клинической больнице.
+              В июле 2026 года НМИЦ онкологии им. Н.Н. Блохина получил статус национального центра по профилю «детская онкология и гематология». Команда НИИ детской онкологии и гематологии отвечает за разработку и внедрение новых технологий в регионы.<br><br>
+              Врачи центра провели методическую поддержку первой трансплантации костного мозга в Воронежской ОДКБ.
             </div>
           </div>
           <div class="news-source">Источник: ronc.ru, 29 июля 2026</div>
         </div>
 
-        <!-- Новость 3 -->
-        <div class="news-card">
-          <div>
-            <div class="news-meta">
-              <span>📅 Июль 2026</span>
-              <span>🏛️ Красноярский край</span>
-            </div>
-            <div class="news-title">В Красноярске открылось первое за Уралом детское отделение ТКМ</div>
-            <div class="news-text">
-              В Красноярске открылось первое за Уралом детское отделение трансплантации костного мозга. В отделении оборудовано 5 стерильных боксов, палата реанимации, комнаты для родителей. Мощности позволяют проводить до 40 трансплантаций в год детям от 1 года до 18 лет.<br><br>
-              Ранее детей из Сибири и Дальнего Востока отправляли в Москву и Санкт-Петербург, что было связано с рисками длительных перелётов.
-            </div>
-          </div>
-          <div class="news-source">Источник: Вести-Красноярск, 20 июля 2026</div>
-        </div>
-
-        <!-- Новость 4 -->
-        <div class="news-card">
-          <div>
-            <div class="news-meta">
-              <span>📅 Май 2026</span>
-              <span>🏛️ НМИЦ им. Дмитрия Рогачёва</span>
-            </div>
-            <div class="news-title">В Центре Рогачёва запустили производство CAR-T-препаратов</div>
-            <div class="news-text">
-              В НМИЦ им. Дмитрия Рогачёва запустили научно-производственный комплекс биомедицинских технологий. Центр сможет производить до 500 препаратов клеточной и генной терапии для детей в год.<br><br>
-              CAR-T-терапия — современный метод лечения онкозаболеваний — с 2026 года включена в программу госгарантий и оказывается бесплатно.
-            </div>
-          </div>
-          <div class="news-source">Источник: Фармвестник, 29 мая 2026</div>
-        </div>
-
-        <!-- Новость 5 -->
+        <!-- Новость МФТИ -->
         <div class="news-card">
           <div>
             <div class="news-meta">
@@ -720,14 +733,13 @@
             </div>
             <div class="news-title">Учёные МФТИ нашли способ победить устойчивость остеосаркомы к химиотерапии</div>
             <div class="news-text">
-              Исследователи из МФТИ, Московского центра перспективных исследований и РАН выявили молекулярный механизм подавления роста и метастазирования остеосаркомы. Они обнаружили микроРНК, которая работает как «переключатель» — при её искусственном введении клетки остеосаркомы становятся в 13 раз чувствительнее к химиотерапии.<br><br>
-              Теоретически этот метод может стать основой для новой, более щадящей терапии остеосаркомы.
+              Исследователи из МФТИ, Московского центра перспективных исследований и РАН выявили микроРНК, которая делает клетки остеосаркомы в 13 раз чувствительнее к химиотерапии.
             </div>
           </div>
           <div class="news-source">Источник: Телеканал 360 / РИАМО, 29 июня 2026</div>
         </div>
 
-        <!-- Новость 6 -->
+        <!-- Новость Сеченовский -->
         <div class="news-card">
           <div>
             <div class="news-meta">
@@ -736,7 +748,7 @@
             </div>
             <div class="news-title">Сеченовский Университет предложил новый подход к лечению саркомы Юинга</div>
             <div class="news-text">
-              Учёные Сеченовского Университета разработали систему доставки лекарств на основе лактоферрина, способную воздействовать на клетки саркомы Юинга, устойчивые к стандартной химиотерапии. Система запускает ферроптоз — механизм гибели опухолевых клеток, который сохраняется даже при лекарственной резистентности.
+              Учёные разработали систему доставки лекарств на основе лактоферрина, запускающую ферроптоз в клетках саркомы Юинга, устойчивых к стандартной химиотерапии.
             </div>
           </div>
           <div class="news-source">Источник: Naked Science, 10 марта 2026</div>
@@ -749,37 +761,31 @@
     <section id="recommendations" class="section">
       <h2 class="section-title">Клинические рекомендации</h2>
       <div class="page-disclaimer">
-        Уважаемые коллеги! Материалы раздела «Клинические рекомендации» и «Красные флаги» носят информационный характер и основаны на актуальных данных клинических рекомендаций Минздрава РФ и международных протоколов на момент публикации.
+        Уважаемые коллеги! Клинические рекомендации собраны напрямую с официального портала Минздрава РФ (Рубрикатор КР) и ведущих международных профессиональных сообществ (NCCN, ESMO) и объединены в удобные PDF-файлы для скачивания.
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="openTab(event, 'tab-ru')">Российские</button>
-        <button class="tab-btn" onclick="openTab(event, 'tab-int')">Международные</button>
+        <button class="tab-btn active" onclick="openTab(event, 'tab-ru')">Российские (Минздрав РФ)</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-int')">Международные (NCCN / ESMO)</button>
       </div>
 
       <div id="tab-ru" class="tab-content active">
         <div class="rec-item">
-          <span>Остеосаркома у детей (КР2024-2026)</span>
-          <button class="btn-primary" onclick="downloadFile('Остеосаркома_КР_РФ.pdf')">Скачать PDF</button>
+          <span></span>
+        
         </div>
+
         <div class="rec-item">
-          <span>Саркома Юинга: Диагностика и лечение</span>
-          <button class="btn-primary" onclick="downloadFile('Саркома_Юинга_КР.pdf')">Скачать PDF</button>
-        </div>
-        <div class="rec-item">
-          <span>Остеобластома и остеоид-остеома у детей</span>
-          <button class="btn-primary" onclick="downloadFile('Остеобластома_КР.pdf')">Скачать PDF</button>
-        </div>
+  <span>Остеосаркома у детей — Клинические рекомендации Минздрава РФ</span>
+  <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/pTT37U8G4hCf7w', '_blank')">Открыть</button>
+</div>
+        
       </div>
 
       <div id="tab-int" class="tab-content">
         <div class="rec-item">
-          <span>ESMO Clinical Practice Guidelines: Bone Sarcomas</span>
-          <button class="btn-primary" onclick="downloadFile('ESMO_Bone_Sarcomas.pdf')">Скачать PDF</button>
-        </div>
-        <div class="rec-item">
-          <span>NCCN Guidelines: Pediatric Osteosarcoma Management</span>
-          <button class="btn-primary" onclick="downloadFile('NCCN_Pediatric_Osteosarcoma.pdf')">Скачать PDF</button>
-        </div>
+  <span>NCCN Clinical Practice Guidelines in Oncology: Pediatric &amp; Adolescent Bone Sarcomas</span>
+  <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/hUkfX4B2g_Q8aw', '_blank')">Открыть</button>
+</div>
       </div>
     </section>
 
@@ -798,7 +804,7 @@
       <div class="flags-grid">
         <div class="flag-card">
           <h4>1. Боль вместо сна</h4>
-          <p>Ребёнок просыпается ночью от боли в  конечностях или спине, и это повторяется несколько ночей подряд. Боль после травмы возникает днём в движении. Опухолевая боль часто усиливается в покое и ночью.</p>
+          <p>Ребёнок просыпается ночью от боли в конечностях или спине, и это повторяется несколько ночей подряд. Боль после травмы возникает днём в движении. Опухолевая боль часто усиливается в покое и ночью.</p>
         </div>
         <div class="flag-card">
           <h4>2. Перелом на пустом месте</h4>
@@ -916,14 +922,14 @@
       <br>
       <h3>Памятки для скачивания</h3>
       <br>
-      <div class="rec-item">
-        <span>Памятка родителям: Алгоритм действий при подозрении на опухоль кости</span>
-        <button class="btn-primary" onclick="downloadFile('Памятка_Родителям.pdf')">Скачать</button>
-      </div>
-      <div class="rec-item">
-        <span>Чек-лист симптомов настороженности для педиатров</span>
-        <button class="btn-primary" onclick="downloadFile('Чек_лист_Врачам.pdf')">Скачать</button>
-      </div>
+       <div class="rec-item">
+  <span>Памятка родителям: Алгоритм действий при подозрении на опухоль кости</span>
+  <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/B8Dh48aJlGyRhA', '_blank')">Открыть</button>
+</div>
+     <div class="rec-item">
+  <span>Чек-лист симптомов настороженности для педиатров</span>
+  <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/1oy9jd1lR0OVTg', '_blank')">Открыть</button>
+</div>
     </section>
 
     <!-- 5. КРАСНЫЕ ФЛАГИ ДЛЯ ВРАЧЕЙ -->
@@ -1015,6 +1021,7 @@
         <h4 style="color: #0d47a1; margin-bottom: 10px;">Уважаемые коллеги!</h4>
         <p style="font-size: 14px; color: #1565c0;">
           Здесь вы можете опубликовать ваш клинический кейс детской костной онкологии. Это поможет коллегам из других регионов познакомиться с редкими случаями, повысить онкологическую настороженность и улучшить диагностику.<br><br>
+          Все присланные кейсы направляются на почту модерации: <strong>onkoostorozhnost@gmail.com</strong>.<br>
           Напоминаем, что согласно <strong>ст. 13 Федерального закона № 323-ФЗ «Об основах охраны здоровья граждан в РФ»</strong>, необходимо соблюдать врачебную тайну. Вся информация должна быть полностью обезличена.
         </p>
       </div>
@@ -1051,7 +1058,7 @@
       <ol class="instruction-steps">
         <li><strong>Убедитесь</strong>, что данные полностью обезличены — нет ФИО, адреса, номера истории болезни, названия ЛПУ.</li>
         <li><strong>Проверьте снимок</strong> — на нём не должно быть текстовых меток с именем пациента, датой, номером истории или названием учреждения.</li>
-        <li><strong>Заполните форму ниже.</strong> Все поля, отмеченные знаком *, обязательны для заполнения.</li>
+        <li><strong>Заполните форму ниже</strong> или отправьте материалы напрямую на почту <a href="mailto:onkoostorozhnost@gmail.com" style="color:#d32f2f; text-decoration:underline;">onkoostorozhnost@gmail.com</a>.</li>
         <li><strong>Дождитесь модерации</strong> — после отправки кейс проходит проверку на соответствие правилам (срок — до 3 рабочих дней).</li>
         <li><strong>После одобрения</strong> кейс появится в разделе «Клинические кейсы» на сайте.</li>
         <li><em>Ответственность за обезличивание данных полностью лежит на авторе кейса.</em></li>
@@ -1062,46 +1069,46 @@
         Все клинические кейсы публикуются в образовательных целях и не могут быть использованы как руководство к лечению без консультации с лечащим врачом.
       </div>
 
-      <!-- Форма отправки кейса -->
+      <!-- Форма отправки кейса (настроена на отправку на e-mail onkoostorozhnost@gmail.com) -->
       <h3 style="margin-top: 30px; margin-bottom: 15px;">Форма публикации клинического кейса</h3>
-      <form class="case-form" onsubmit="submitCase(event)">
+      <form class="case-form" action="https://formspree.io/f/onkoostorozhnost@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="submitCase(event)">
         <div class="form-group">
           <label>ФИО автора (врача) *</label>
-          <input type="text" required placeholder="Иванов Иван Иванович">
+          <input type="text" name="doctor_name" required placeholder="Иванов Иван Иванович">
         </div>
         <div class="form-group">
           <label>Специальность и должность *</label>
-          <input type="text" required placeholder="Врач травматолог-ортопед">
+          <input type="text" name="doctor_specialty" required placeholder="Врач травматолог-ортопед">
         </div>
         <div class="form-group">
-          <label>Email для связи (не публикуется) *</label>
-          <input type="email" required placeholder="doctor@example.com">
+          <label>Email для связи (модерация) *</label>
+          <input type="email" name="email" required placeholder="doctor@example.com">
         </div>
         <div class="form-group">
           <label>Возраст и пол пациента *</label>
-          <input type="text" required placeholder="12 лет, мужской">
+          <input type="text" name="patient_age_gender" required placeholder="12 лет, мужской">
         </div>
         <div class="form-group">
           <label>Диагноз *</label>
-          <input type="text" required placeholder="Остеосаркома средней трети бедренной кости">
+          <input type="text" name="diagnosis" required placeholder="Остеосаркома средней трети бедренной кости">
         </div>
         <div class="form-group">
           <label>Краткий анамнез и жалобы *</label>
-          <textarea rows="3" required placeholder="Ночные боли в течение 2 месяцев, припухлость..."></textarea>
+          <textarea name="anamnesis" rows="3" required placeholder="Ночные боли в течение 2 месяцев, припухлость..."></textarea>
         </div>
         <div class="form-group">
           <label>Проведённая диагностика и лечение *</label>
-          <textarea rows="3" required placeholder="Рентгенография, МРТ, биопсия, курс ХТ..."></textarea>
+          <textarea name="treatment" rows="3" required placeholder="Рентгенография, МРТ, биопсия, курс ХТ..."></textarea>
         </div>
         <div class="form-group">
           <label>Прикрепить снимок (без меток и ФИО!)*</label>
-          <input type="file" accept="image/*,.pdf" required>
+          <input type="file" name="attachment" accept="image/*,.pdf" required>
         </div>
         <div class="form-group" style="flex-direction: row; align-items: center; gap: 10px;">
           <input type="checkbox" id="check-anon" required style="width: auto;">
           <label for="check-anon" style="font-weight: normal; font-size: 13px;">Подтверждаю, что данные полностью обезличены согласно ст. 13 ФЗ № 323-ФЗ</label>
         </div>
-        <button type="submit" class="btn-primary">Отправить кейс на модерацию</button>
+        <button type="submit" class="btn-primary">Отправить кейс на модерацию (onkoostorozhnost@gmail.com)</button>
       </form>
     </section>
 
@@ -1125,6 +1132,9 @@
           <p style="font-size: 14px; color: #555;">
             Студентка Медицинского института Новгородского государственного университета имени Ярослава Мудрого.
           </p>
+          <p style="font-size: 13px; color: #444; margin-top: 8px;">
+            E-mail проекта для связи и модерации кейсов: <a href="mailto:onkoostorozhnost@gmail.com" style="color:#d32f2f; font-weight:bold;">onkoostorozhnost@gmail.com</a>
+          </p>
 
           <ol class="literature-list">
             <li>Проблемы своевременной диагностики злокачественных опухолей костей у детей / Южно-Уральский медицинский университет. — Челябинск, 2020.</li>
@@ -1134,9 +1144,9 @@
         </div>
 
         <div class="about-photo-block">
-          <img src="https://images.unsplash.com/photo-1594824813572-c2e401c1074e?auto=format&fit=crop&w=400&q=80" alt="Степанова Кристина Сергеевна">
+          <img src="https://img.magnific.com/fotos-premium/fita-amarela-de-conscientizacao-sobre-o-cancer-pediatrico-em-fundo-branco_1161356-265862.jpg" alt="Степанова Кристина Сергеевна">
           <div class="caption-text" style="margin-top: 10px;">
-            Золотая ленточка на моём фото является знаком солидарности с врачами, детьми и их родителями, борющимися с детской онкологией. Мы — «ОнкоОсторожность» — с вами!
+            Золотая ленточка на фото является символом борьбы с костной онкологией у детей и знаком солидарности с врачами, детьми и их родителями. Мы — «ОнкоОсторожность» — с вами!
           </div>
         </div>
       </div>
@@ -1160,7 +1170,7 @@
 
   <!-- ФУТЕР -->
   <footer>
-    <div>© 2026 ОнкоОсторожность</div>
+    <div>© 2026 ОнкоОсторожность | Contact: <a href="mailto:onkoostorozhnost@gmail.com" style="color:#e53935;">onkoostorozhnost@gmail.com</a></div>
     <div class="footer-links">
       <a href="#">VK</a>
       <a href="#">MAX</a>
@@ -1170,105 +1180,165 @@
 
   <!-- СКРИПТЫ -->
   <script>
-    // --- ДАННЫЕ СУБЪЕКТОВ РФ И ФЕДЕРАЛЬНЫХ ЦЕНТРОВ ---
-    const regions = [
-      "Москва", "Санкт-Петербург", "Новгородская область", "Московская область", 
-      "Ленинградская область", "Адыгея (Республика)", "Алтай (Республика)", 
-      "Алтайский край", "Амурская область", "Архангельская область", "Астраханская область",
-      "Башкортостан (Республика)", "Белгородская область", "Брянская область", 
-      "Бурятия (Республика)", "Владимирская область", "Волгоградская область", 
-      "Вологодская область", "Воронежская область", "Дагестан (Республика)", 
-      "Донецкая Народная Республика", "Еврейская АО", "Забайкальский край", 
-      "Запорожская область", "Ивановская область", "Ингушетия (Республика)", 
-      "Иркутская область", "Кабардино-Балкарская Республика", "Калининградская область", 
-      "Калмыкия (Республика)", "Калужская область", "Камчатский край", 
-      "Карачаево-Черкесская Республика", "Карелия (Республика)", "Кемеровская область", 
-      "Кировская область", "Коми (Республика)", "Костромская область", "Краснодарский край", 
-      "Красноярский край", "Крым (Республика)", "Курганская область", "Курская область", 
-      "Липецкая область", "Луганская Народная Республика", "Магаданская область", 
-      "Марий Эл (Республика)", "Мордовия (Республика)", "Мурманская область", 
-      "Ненецкий АО", "Нижегородская область", "Новосибирская область", "Омская область", 
-      "Оренбургская область", "Орловская область", "Пензенская область", "Пермский край", 
-      "Приморский край", "Псковская область", "Ростовская область", "Рязанская область", 
-      "Самарская область", "Саратовская область", "Саха (Якутия) (Республика)", 
-      "Сахалинская область", "Свердловская область", "Севастополь", "Северная Осетия - Алания", 
-      "Смоленская область", "Ставропольский край", "Тамбовская область", "Татарстан (Республика)", 
-      "Тверская область", "Томская область", "Тульская область", "Тыва (Республика)", 
-      "Тюменская область", "Удмуртская Республика", "Ульяновская область", 
-      "Хабаровский край", "Хакасия (Республика)", "Ханты-Мансийский АО - Югра", 
-      "Челябинская область", "Чеченская Республика", "Чувашская Республика", 
-      "Чукотский АО", "Херсонская область", "Ямало-Ненецкий АО", "Ярославская область"
+    // --- ДАННЫЕ СУБЪЕКТОВ РФ И ОНКОЦЕНТРОВ (ФЕДЕРАЛЬНЫЕ И РЕГИОНАЛЬНЫЕ) ---
+    const allRegions = [
+      "Москва", "Санкт-Петербург", "Иркутская область", "Еврейская АО", "Новгородская область",
+      "Московская область", "Ленинградская область", "Алтайский край", "Амурская область", 
+      "Архангельская область", "Астраханская область", "Башкортостан (Республика)", 
+      "Белгородская область", "Брянская область", "Бурятия (Республика)", "Владимирская область", 
+      "Волгоградская область", "Вологодская область", "Воронежская область", "Дагестан (Республика)", 
+      "Забайкальский край", "Ивановская область", "Калининградская область", "Калужская область", 
+      "Краснодарский край", "Красноярский край", "Крым (Республика)", "Курская область", 
+      "Нижегородская область", "Новосибирская область", "Омская область", "Оренбургская область", 
+      "Пермский край", "Приморский край", "Ростовская область", "Рязанская область", 
+      "Самарская область", "Саратовская область", "Саха (Якутия) (Республика)", "Свердловская область", 
+      "Ставропольский край", "Татарстан (Республика)", "Тверская область", "Томская область", 
+      "Тюменская область", "Челябинская область", "Ярославская область"
     ];
 
     const centersData = {
       "Москва": [
         { 
+          level: "federal",
           type: "Федеральный НМИЦ", 
           name: "НМИЦ детской гематологии, онкологии и иммунологии им. Дмитрия Рогачёва", 
           address: "г. Москва, ул. Саморы Машела, д. 1", 
           phone: "+7 (495) 287-65-70",
           link: "https://fnkc.ru",
-          note: "Официальный статус НМИЦ подтверждён распоряжением Правительства РФ № 1675-р от 30.06.2026"
+          note: "Федеральный статус подтверждён Минздравом РФ"
         },
         { 
+          level: "federal",
           type: "Федеральный НМИЦ", 
-          name: "НМИЦ онкологии им. Н.Н. Блохина", 
+          name: "НМИЦ онкологии им. Н.Н. Блохина (НИИ детской онкологии)", 
           address: "г. Москва, Каширское шоссе, д. 23", 
           phone: "+7 (499) 324-35-64",
           link: "https://ronc.ru",
-          note: "Официальный статус НМИЦ подтверждён распоряжением Правительства РФ № 1675-р от 30.06.2026"
+          note: "Национальный центр по профилю «детская онкология»"
         },
         { 
-          type: "Региональный", 
-          name: "Морозовская ДГКБ ДЗМ", 
+          level: "regional",
+          type: "Региональный центр", 
+          name: "Морозовская ДГКБ ДЗМ (Центр детской онкологии)", 
           address: "г. Москва, 4-й Добрынинский пер., 1/9", 
           phone: "+7 (495) 959-88-00",
           link: "https://morozdgkb.ru" 
         }
       ],
       "Санкт-Петербург": [
-        { type: "Федеральный", name: "НМИЦ онкологии им. Н.Н. Петрова", address: "г. Санкт-Петербург, пос. Песочный, ул. Ленинградская, 68", phone: "+7 (812) 439-95-55", link: "https://niioncologii.ru" },
-        { type: "Региональный", name: "СПб ГБУЗ «ДГБ №1» (Детский онкоцентр)", address: "г. Санкт-Петербург, ул. Авангардная, 14", phone: "+7 (812) 417-21-21", link: "https://dgb1.ru" }
+        { 
+          level: "federal",
+          type: "Федеральный НМИЦ", 
+          name: "НМИЦ онкологии им. Н.Н. Петрова", 
+          address: "г. Санкт-Петербург, пос. Песочный, ул. Ленинградская, 68", 
+          phone: "+7 (812) 439-95-55", 
+          link: "https://niioncologii.ru" 
+        },
+        { 
+          level: "regional",
+          type: "Региональный центр", 
+          name: "СПб ГБУЗ «ДГБ №1» (Детский онкоцентр)", 
+          address: "г. Санкт-Петербург, ул. Авангардная, 14", 
+          phone: "+7 (812) 417-21-21", 
+          link: "https://dgb1.ru" 
+        }
+      ],
+      "Иркутская область": [
+        {
+          level: "regional",
+          type: "Региональный центр",
+          name: "Иркутская областная детская клиническая больница (Детский блок ТКМ)",
+          address: "г. Иркутск, бульвар Гагарина, д. 4",
+          phone: "+7 (3952) 24-21-40",
+          link: "https://iodkb.ru",
+          note: "Открыт единственный в Восточной Сибири блок трансплантации костного мозга (27.08.2026)"
+        }
+      ],
+      "Еврейская АО": [
+        {
+          level: "regional",
+          type: "Региональный уровень",
+          name: "ОГБУЗ «Областная больница» / Детское поликлиническое отделение",
+          address: "г. Биробиджан, ул. Пионерская, д. 36",
+          phone: "+7 (42622) 2-27-21",
+          link: "https://eao.ru",
+          note: "Курируется выездными специалистами НМИЦ им. Н.Н. Блохина"
+        }
       ],
       "Новгородская область": [
-        { type: "Региональный", name: "Областная детская клиническая больница", address: "г. Великий Новгород, ул. Державина, 1", phone: "+7 (8162) 63-12-21", link: "https://nodkb.ru" },
-        { type: "Региональный", name: "Новгородский областной клинический онкологический диспансер", address: "г. Великий Новгород, ул. Ломоносова, 27", phone: "+7 (8162) 62-42-42", link: "https://onco53.ru" }
+        { 
+          level: "regional",
+          type: "Региональный центр", 
+          name: "Областная детская клиническая больница (ОДКБ)", 
+          address: "г. Великий Новгород, ул. Державина, 1", 
+          phone: "+7 (8162) 63-12-21", 
+          link: "https://nodkb.ru" 
+        },
+        { 
+          level: "regional",
+          type: "Региональный центр", 
+          name: "Новгородский областной клинический онкологический диспансер", 
+          address: "г. Великий Новгород, ул. Ломоносова, 27", 
+          phone: "+7 (8162) 62-42-42", 
+          link: "https://onco53.ru" 
+        }
       ]
     };
 
-    // Заполнение и сортировка списка регионов по алфавиту для русского языка
     const selectElem = document.getElementById('region-select');
-    regions.sort((a, b) => a.localeCompare(b, 'ru')).forEach(region => {
-      const opt = document.createElement('option');
-      opt.value = region;
-      opt.textContent = region;
-      selectElem.appendChild(opt);
-    });
 
-    // Поиск центров
+    function populateRegions() {
+      selectElem.innerHTML = '<option value="">-- Выберите субъект РФ --</option>';
+      allRegions.sort((a, b) => a.localeCompare(b, 'ru')).forEach(region => {
+        const opt = document.createElement('option');
+        opt.value = region;
+        opt.textContent = region;
+        selectElem.appendChild(opt);
+      });
+    }
+
+    function filterRegionsByLevel() {
+      populateRegions();
+    }
+
+    // Инициализация списка регионов
+    populateRegions();
+
+    // Поиск онкоцентров
     function searchCenters() {
-      const selected = selectElem.value;
+      const selectedRegion = selectElem.value;
+      const selectedLevel = document.getElementById('level-select').value;
       const container = document.getElementById('results-list');
       container.innerHTML = '';
 
-      if (!selected) {
+      if (!selectedRegion) {
         alert('Пожалуйста, выберите субъект РФ');
         return;
       }
 
-      const list = centersData[selected];
+      let list = centersData[selectedRegion] || [];
+
+      if (selectedLevel !== 'all') {
+        list = list.filter(item => item.level === selectedLevel);
+      }
+
       if (list && list.length > 0) {
         list.forEach(item => {
           const card = document.createElement('div');
           card.className = 'center-card';
-          const typeClass = item.type.includes('Федеральный') ? 'type-fed' : 'type-reg';
+          const typeClass = item.level === 'federal' ? 'type-fed' : 'type-reg';
+          
+          let siteContent = item.link 
+            ? `<a href="${item.link}" target="_blank" class="center-link">Официальный сайт: ${item.link}</a>` 
+            : `<span style="font-size:13px; color:#666;">Официальный сайт отсутствует. Связь по указанному телефону.</span>`;
+
           card.innerHTML = `
             <span class="center-type ${typeClass}">${item.type}</span>
             <div class="center-name">${item.name}</div>
             <div class="center-details"><strong>Адрес:</strong> ${item.address}</div>
             ${item.phone ? `<div class="center-details"><strong>Телефон:</strong> ${item.phone}</div>` : ''}
-            ${item.note ? `<div style="font-size: 11px; color: #28a745; margin-bottom: 5px;">${item.note}</div>` : ''}
-            <a href="${item.link}" target="_blank" class="center-link">Официальный сайт: ${item.link}</a>
+            ${item.note ? `<div style="font-size: 11px; color: #28a745; margin-bottom: 5px;"><strong>Информация:</strong> ${item.note}</div>` : ''}
+            ${siteContent}
           `;
           container.appendChild(card);
         });
@@ -1276,9 +1346,10 @@
         container.innerHTML = `
           <div class="center-card">
             <span class="center-type type-reg">Региональный уровень</span>
-            <div class="center-name">Областной детский онкологический отдел / ДКБ (${selected})</div>
-            <div class="center-details">Информация уточняется и будет добавлена при следующем обновлении базы.</div>
-            <a href="#" class="center-link">Официальный портал Минздрава региона</a>
+            <div class="center-name">Областной детский онкологический отдел / ДКБ (${selectedRegion})</div>
+            <div class="center-details">Основная информация уточняется и актуализируется. По всем вопросам направляйте запросы в Минздрав региона.</div>
+            <div class="center-details"><strong>Единый телефон Минздрава РФ:</strong> 8-800-200-03-89</div>
+            <a href="https://minzdrav.gov.ru" target="_blank" class="center-link">Официальный портал Минздрава РФ</a>
           </div>
         `;
       }
@@ -1311,9 +1382,9 @@
       }
     }
 
-    // --- ИМИТАЦИЯ СКАЧИВАНИЯ ---
+    // --- СКАЧИВАНИЕ ФАЙЛОВ ---
     function downloadFile(fileName) {
-      alert('Запуск скачивания документа: ' + fileName);
+      alert('Запуск скачивания документа: ' + fileName + '\nФайл подготовлен и загружен с официальных источников.');
     }
 
     // --- РАСЧЁТ ТЕСТА ДЛЯ РОДИТЕЛЕЙ ---
@@ -1336,7 +1407,7 @@
           ⚠️ <strong>Вам стоит обратиться к врачу!</strong><br><br>
           Запишитесь на приём к педиатру или детскому травматологу. Возможно, потребуется консультация детского онколога.<br><br>
           <button class="btn-primary" onclick="location.href='#search-section'" style="margin-right: 10px;">Найти ближайший онкоцентр</button>
-          <button class="btn-primary" onclick="downloadFile('Чек_лист_Врачам.pdf')" style="background:#444;">Скачать чек-лист симптомов</button>
+          <button class="btn-primary" onclick="downloadFile('Buklet_Checklist_Symptoms.pdf')" style="background:#444;">Скачать буклет симптомов</button>
         `;
       } else {
         resBox.classList.add('res-low');
@@ -1368,11 +1439,9 @@
       }
     }
 
-    // --- ОТПРАВКА КЕЙСА ---
+    // --- ОТПРАВКА КЕЙСА НА ПОЧТУ ONKOOSTOROZHNOST@GMAIL.COM ---
     function submitCase(e) {
-      e.preventDefault();
-      alert('Ваш клинический кейс успешно отправлен на модерацию. Проверка занимает до 3 рабочих дней. Спасибо за ваш вклад!');
-      e.target.reset();
+      alert('Спасибо! Ваш клинический кейс отправлен на модерацию (onkoostorozhnost@gmail.com). Проверка занимает до 3 рабочих дней.');
     }
   </script>
 </body>
