@@ -185,6 +185,10 @@
     button.btn-primary:hover {
       background: #e53935;
     }
+    button.btn-primary:disabled {
+      background: #666;
+      cursor: wait;
+    }
 
     .results-container {
       margin-top: 20px;
@@ -451,6 +455,19 @@
       font-size: 14px;
       font-weight: bold;
     }
+
+    /* Статус отправки формы */
+    .form-status {
+      margin-top: 15px;
+      padding: 14px 18px;
+      border-radius: 4px;
+      font-size: 14px;
+      display: none;
+    }
+    .form-status.show { display: block; }
+    .form-status.success { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .form-status.error { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+    .form-status.loading { background: #e3f2fd; color: #0d47a1; border: 1px solid #90caf9; }
 
     /* --- FAQ АККОРДЕОН --- */
     .faq-item {
@@ -771,21 +788,19 @@
       <div id="tab-ru" class="tab-content active">
         <div class="rec-item">
           <span></span>
-        
         </div>
 
         <div class="rec-item">
-  <span>Остеосаркома у детей — Клинические рекомендации Минздрава РФ</span>
-  <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/pTT37U8G4hCf7w', '_blank')">Открыть</button>
-</div>
-        
+          <span>Остеосаркома у детей — Клинические рекомендации Минздрава РФ</span>
+          <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/pTT37U8G4hCf7w', '_blank')">Открыть</button>
+        </div>
       </div>
 
       <div id="tab-int" class="tab-content">
         <div class="rec-item">
-  <span>NCCN Clinical Practice Guidelines in Oncology: Pediatric &amp; Adolescent Bone Sarcomas</span>
-  <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/hUkfX4B2g_Q8aw', '_blank')">Открыть</button>
-</div>
+          <span>NCCN Clinical Practice Guidelines in Oncology: Pediatric &amp; Adolescent Bone Sarcomas</span>
+          <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/hUkfX4B2g_Q8aw', '_blank')">Открыть</button>
+        </div>
       </div>
     </section>
 
@@ -922,14 +937,14 @@
       <br>
       <h3>Памятки для скачивания</h3>
       <br>
-       <div class="rec-item">
-  <span>Памятка родителям: Алгоритм действий при подозрении на опухоль кости</span>
-  <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/B8Dh48aJlGyRhA', '_blank')">Открыть</button>
-</div>
-     <div class="rec-item">
-  <span>Чек-лист симптомов настороженности для педиатров</span>
-  <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/1oy9jd1lR0OVTg', '_blank')">Открыть</button>
-</div>
+      <div class="rec-item">
+        <span>Памятка родителям: Алгоритм действий при подозрении на опухоль кости</span>
+        <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/B8Dh48aJlGyRhA', '_blank')">Открыть</button>
+      </div>
+      <div class="rec-item">
+        <span>Чек-лист симптомов настороженности для педиатров</span>
+        <button class="btn-primary" onclick="window.open('https://disk.yandex.ru/i/1oy9jd1lR0OVTg', '_blank')">Открыть</button>
+      </div>
     </section>
 
     <!-- 5. КРАСНЫЕ ФЛАГИ ДЛЯ ВРАЧЕЙ -->
@@ -1016,7 +1031,7 @@
     <!-- 6. КЛИНИЧЕСКИЕ КЕЙСЫ -->
     <section id="cases" class="section">
       <h2 class="section-title">Клинические кейсы детской костной онкологии</h2>
-      
+
       <div style="background: #e3f2fd; padding: 20px; border-radius: 6px; margin-bottom: 25px;">
         <h4 style="color: #0d47a1; margin-bottom: 10px;">Уважаемые коллеги!</h4>
         <p style="font-size: 14px; color: #1565c0;">
@@ -1058,7 +1073,7 @@
       <ol class="instruction-steps">
         <li><strong>Убедитесь</strong>, что данные полностью обезличены — нет ФИО, адреса, номера истории болезни, названия ЛПУ.</li>
         <li><strong>Проверьте снимок</strong> — на нём не должно быть текстовых меток с именем пациента, датой, номером истории или названием учреждения.</li>
-        <li><strong>Заполните форму ниже</strong> или отправьте материалы напрямую на почту <a href="mailto:onkoostorozhnost@gmail.com" style="color:#d32f2f; text-decoration:underline;">onkoostorozhnost@gmail.com</a>.</li>
+        <li><strong>Заполните форму ниже</strong>. Снимки и другие файлы пришлите отдельным письмом на <a href="mailto:onkoostorozhnost@gmail.com" style="color:#d32f2f; text-decoration:underline;">onkoostorozhnost@gmail.com</a>, указав в теме ФИО автора.</li>
         <li><strong>Дождитесь модерации</strong> — после отправки кейс проходит проверку на соответствие правилам (срок — до 3 рабочих дней).</li>
         <li><strong>После одобрения</strong> кейс появится в разделе «Клинические кейсы» на сайте.</li>
         <li><em>Ответственность за обезличивание данных полностью лежит на авторе кейса.</em></li>
@@ -1069,47 +1084,71 @@
         Все клинические кейсы публикуются в образовательных целях и не могут быть использованы как руководство к лечению без консультации с лечащим врачом.
       </div>
 
-      <!-- Форма отправки кейса (настроена на отправку на e-mail onkoostorozhnost@gmail.com) -->
+      <!-- ================= ФОРМА ОТПРАВКИ КЕЙСА (Web3Forms) ================= -->
       <h3 style="margin-top: 30px; margin-bottom: 15px;">Форма публикации клинического кейса</h3>
-      <form class="case-form" action="https://formspree.io/f/onkoostorozhnost@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="submitCase(event)">
+      <form class="case-form" id="case-form"
+            action="https://api.web3forms.com/submit"
+            method="POST">
+
+        <!-- Секретный ключ Web3Forms -->
+        <input type="hidden" name="access_key" value="f059b558-ea80-41e0-98a2-2f0d81fe528b">
+        <!-- Тема письма -->
+        <input type="hidden" name="subject" value="🩺 Новый клинический кейс с сайта ОнкоОсторожность">
+        <!-- Отображаемое имя отправителя -->
+        <input type="hidden" name="from_name" value="ОнкоОсторожность — форма кейсов">
+        <!-- Ловушка для ботов (не заполнять) -->
+        <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+
         <div class="form-group">
           <label>ФИО автора (врача) *</label>
-          <input type="text" name="doctor_name" required placeholder="Иванов Иван Иванович">
+          <input type="text" name="ФИО автора" required placeholder="Иванов Иван Иванович">
         </div>
         <div class="form-group">
           <label>Специальность и должность *</label>
-          <input type="text" name="doctor_specialty" required placeholder="Врач травматолог-ортопед">
+          <input type="text" name="Специальность" required placeholder="Врач травматолог-ортопед">
         </div>
         <div class="form-group">
           <label>Email для связи (модерация) *</label>
-          <input type="email" name="email" required placeholder="doctor@example.com">
+          <input type="email" name="Email автора" required placeholder="doctor@example.com">
         </div>
         <div class="form-group">
           <label>Возраст и пол пациента *</label>
-          <input type="text" name="patient_age_gender" required placeholder="12 лет, мужской">
+          <input type="text" name="Возраст и пол пациента" required placeholder="12 лет, мужской">
         </div>
         <div class="form-group">
           <label>Диагноз *</label>
-          <input type="text" name="diagnosis" required placeholder="Остеосаркома средней трети бедренной кости">
+          <input type="text" name="Диагноз" required placeholder="Остеосаркома средней трети бедренной кости">
         </div>
         <div class="form-group">
           <label>Краткий анамнез и жалобы *</label>
-          <textarea name="anamnesis" rows="3" required placeholder="Ночные боли в течение 2 месяцев, припухлость..."></textarea>
+          <textarea name="Анамнез" rows="3" required placeholder="Ночные боли в течение 2 месяцев, припухлость..."></textarea>
         </div>
         <div class="form-group">
           <label>Проведённая диагностика и лечение *</label>
-          <textarea name="treatment" rows="3" required placeholder="Рентгенография, МРТ, биопсия, курс ХТ..."></textarea>
+          <textarea name="Лечение" rows="3" required placeholder="Рентгенография, МРТ, биопсия, курс ХТ..."></textarea>
         </div>
-        <div class="form-group">
-          <label>Прикрепить снимок (без меток и ФИО!)*</label>
-          <input type="file" name="attachment" accept="image/*,.pdf" required>
+
+        <!-- Блок-инструкция: файлы отдельным письмом -->
+        <div class="form-group" style="background: #fff8f8; padding: 14px 16px; border-radius: 4px; border-left: 4px solid #e53935;">
+          <p style="font-size: 13px; color: #444; margin: 0;">
+            <strong>📎 Как приложить снимки?</strong><br>
+            Снимки (рентген, МРТ, КТ) и другие файлы пришлите <strong>отдельным письмом</strong> на
+            <a href="mailto:onkoostorozhnost@gmail.com" style="color: #d32f2f; font-weight: bold;">onkoostorozhnost@gmail.com</a>,
+            указав в теме письма <strong>ФИО автора кейса</strong>. Так мы сможем сопоставить письмо с формой.
+          </p>
         </div>
+
         <div class="form-group" style="flex-direction: row; align-items: center; gap: 10px;">
           <input type="checkbox" id="check-anon" required style="width: auto;">
           <label for="check-anon" style="font-weight: normal; font-size: 13px;">Подтверждаю, что данные полностью обезличены согласно ст. 13 ФЗ № 323-ФЗ</label>
         </div>
-        <button type="submit" class="btn-primary">Отправить кейс на модерацию (onkoostorozhnost@gmail.com)</button>
+
+        <button type="submit" class="btn-primary" id="case-submit-btn">Отправить кейс на модерацию</button>
+
+        <!-- Блок статуса отправки -->
+        <div id="case-form-status" class="form-status"></div>
       </form>
+      <!-- ================= КОНЕЦ ФОРМЫ ================= -->
     </section>
 
     <!-- 7. О ПРОЕКТЕ И БЛАГОДАРНОСТИ -->
@@ -1120,7 +1159,7 @@
           <p class="project-desc">
             Сайт «ОнкоОсторожность» — это информационно-навигационный ресурс для ранней диагностики костных опухолей у детей. Проект ориентирован на врачей-травматологов, ортопедов, детских онкологов, а также родителей пациентов. Сайт объединяет образовательные материалы (красные флаги, клинические рекомендации), памятки для родителей и интерактивный навигатор по детским онкоцентрам России.
           </p>
-          
+
           <p class="project-desc" style="background: #fdf8f0; padding: 15px; border-left: 3px solid #f39c12; margin: 15px 0;">
             По данным исследований в российских регионах, частота диагностических ошибок при первичных злокачественных опухолях костей у детей достигает 72,2%, а срок постановки правильного диагноза варьируется от 4 до 40 недель [1, 2]. Основными причинами задержки диагностики являются неспецифичность клинических проявлений, трудности рентгенологической интерпретации и недостаточная онкологическая настороженность врачей первичного звена [3].<br><br>
             <strong>Проект «ОнкоОсторожность» создан для того, чтобы сократить эти сроки и помочь врачам и родителям вовремя заметить тревожные симптомы.</strong>
@@ -1439,10 +1478,49 @@
       }
     }
 
-    // --- ОТПРАВКА КЕЙСА НА ПОЧТУ ONKOOSTOROZHNOST@GMAIL.COM ---
-    function submitCase(e) {
-      alert('Спасибо! Ваш клинический кейс отправлен на модерацию (onkoostorozhnost@gmail.com). Проверка занимает до 3 рабочих дней.');
-    }
+    // --- ОТПРАВКА КЛИНИЧЕСКОГО КЕЙСА ЧЕРЕЗ WEB3FORMS ---
+    const caseForm = document.getElementById('case-form');
+    const caseStatus = document.getElementById('case-form-status');
+    const caseBtn = document.getElementById('case-submit-btn');
+
+    caseForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const originalText = caseBtn.textContent;
+      caseBtn.disabled = true;
+      caseBtn.textContent = 'Отправка...';
+
+      caseStatus.className = 'form-status show loading';
+      caseStatus.textContent = 'Отправляем ваш кейс на модерацию... Пожалуйста, подождите.';
+
+      const formData = new FormData(caseForm);
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          caseStatus.className = 'form-status show success';
+          caseStatus.innerHTML = '✅ <strong>Спасибо!</strong> Ваш клинический кейс отправлен на модерацию. Мы свяжемся с вами в течение 3 рабочих дней. Не забудьте прислать снимки отдельным письмом на onkoostorozhnost@gmail.com, указав в теме ФИО автора.';
+          caseForm.reset();
+        } else {
+          caseStatus.className = 'form-status show error';
+          caseStatus.innerHTML = '❌ <strong>Ошибка отправки:</strong> ' + (result.message || 'Попробуйте ещё раз или напишите нам напрямую на onkoostorozhnost@gmail.com');
+        }
+      } catch (err) {
+        caseStatus.className = 'form-status show error';
+        caseStatus.innerHTML = '❌ <strong>Ошибка сети.</strong> Проверьте соединение и попробуйте ещё раз, либо отправьте кейс письмом на onkoostorozhnost@gmail.com';
+      } finally {
+        caseBtn.disabled = false;
+        caseBtn.textContent = originalText;
+        caseStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
   </script>
 </body>
 </html>
